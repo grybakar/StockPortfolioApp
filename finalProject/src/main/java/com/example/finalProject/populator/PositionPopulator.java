@@ -4,7 +4,7 @@ import com.example.finalProject.dto.PositionDto;
 import com.example.finalProject.model.Portfolio;
 import com.example.finalProject.model.Position;
 import com.example.finalProject.service.DataFromApiService;
-import com.example.finalProject.service.PositionCalculationService;
+import com.example.finalProject.service.TotalCalculationServiceImpl;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 @AllArgsConstructor
 public class PositionPopulator {
 
-    private final PositionCalculationService positionCalculationService;
+    private final TotalCalculationServiceImpl positionCalculationService;
     private final DataFromApiService dataFromApiService;
 
     /**
@@ -33,6 +33,7 @@ public class PositionPopulator {
         position.setGainLoss(positionCalculationService.calculateGainLoss(positionDto));
         position.setGainLossPercentage(positionCalculationService.calculateGainLossPercentage(positionDto));
         position.setCurrentPrice(dataFromApiService.getCurrentPriceFromApi(positionDto.getTicker()));
+
         position.setPortfolio(Portfolio
                 .builder()
                 .id(positionDto.getPortfolioId()).build());

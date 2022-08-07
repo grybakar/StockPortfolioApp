@@ -71,18 +71,4 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         return new ResponseEntity<>(errorMessage, HttpStatus.BAD_REQUEST);
     }
 
-    /**
-     * I want to see a detailed error message for all fields that didn't pass validation.
-     */
-//        ApiFieldErrorMessage apiFieldErrorMessage = ApiFieldErrorMessage.builder()
-//                .object(exception.getFieldError().getObjectName())
-//                .field(exception.getBindingResult().getFieldError().getField())
-//                .rejectedValue((exception.getFieldError().getRejectedValue()))
-//                .message(exception.getFieldError().getDefaultMessage())
-//                .build();
-
-//        List<ApiFieldErrorMessage> apiFieldErrorMessages = new ArrayList<>();
-//        apiFieldErrorMessages.add(apiFieldErrorMessage);
-
-
 }

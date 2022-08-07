@@ -3,13 +3,13 @@ package com.example.finalProject.service;
 
 import com.example.finalProject.dto.PositionDto;
 import com.example.finalProject.utility.CalculationUtils;
-import com.example.finalProject.utility.PositionCalculator;
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
-@AllArgsConstructor
-public class PositionCalculationService implements PositionCalculator {
+@RequiredArgsConstructor
+public class TotalCalculationServiceImpl implements TotalCalculationService {
 
     private final DataFromApiService dataFromApiService;
     private final CalculationUtils calculationUtils;

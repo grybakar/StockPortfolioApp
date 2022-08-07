@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 public class DataFromApiService {
 
     private static final String EOD_LATEST_PRICE_INFO_BY_TICKER =
-            "http://api.marketstack.com/v1/eod/latest?access_key=ab30072f1b21105ec724ce94832a8e89&symbols=%s";
+            "http://api.marketstack.com/v1/eod/latest?access_key=8fb16bcc2de03fc98cbd74986ca2b934&symbols=%s";
 
     /**
      * getCurrentPrice methodas turetu grazinti dabartine stocko kaina.

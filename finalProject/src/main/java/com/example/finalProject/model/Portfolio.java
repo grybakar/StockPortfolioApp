@@ -27,7 +27,7 @@ public class Portfolio {
     private String name;
 
     @JsonManagedReference
-    @OneToMany(mappedBy = "portfolio", cascade = CascadeType.PERSIST, orphanRemoval = true) //buvo persist
+    @OneToMany(mappedBy = "portfolio", cascade = CascadeType.PERSIST, orphanRemoval = true)
     private List<Position> positions;
 
     @JsonBackReference

@@ -33,13 +33,12 @@ public class Position {
 
     @NotNull(message = "at least 1 share is required")
     @Min(value = 1)
-    private Integer shares; // manualInput
-
-    private Double totalCost; //BUSINESS LOGIC REQUIRED:  purchase_price * shares
-    private Double currentPrice; // //BUSINESS LOGIC REQUIRED: NEED TO GET THIS FROM AN EXTERNAL API
-    private Double totalEquity; //BUSINESS LOGIC REQUIRED: currentPrice * shares
-    private Double gainLoss;  //BUSINESS LOGIC REQUIRED: total_equity - totalCost
-    private Double gainLossPercentage; // //BUSINESS LOGIC REQUIRED: total_equity - totalCost / 100%
+    private Integer shares;
+    private Double totalCost;
+    private Double currentPrice;
+    private Double totalEquity;
+    private Double gainLoss;
+    private Double gainLossPercentage;
 
     @ManyToOne
     @JsonBackReference

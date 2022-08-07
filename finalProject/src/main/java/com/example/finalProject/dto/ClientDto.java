@@ -5,8 +5,7 @@ import java.util.List;
 public class ClientDto {
 
     private Long id;
-    private String firstName;
-    private String lastName;
+    private String fullName;
     private String password;
     private String email;
     private List<PortfolioDto> portfolioDto;

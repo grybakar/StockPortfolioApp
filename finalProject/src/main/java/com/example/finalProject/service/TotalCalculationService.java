@@ -1,8 +1,8 @@
-package com.example.finalProject.utility;
+package com.example.finalProject.service;
 
 import com.example.finalProject.dto.PositionDto;
 
-public interface PositionCalculator {
+public interface TotalCalculationService {
 
     Double calculateTotalCost(PositionDto positionDto);
 
