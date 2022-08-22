@@ -6,6 +6,8 @@ import com.example.finalProject.model.Portfolio;
 import com.example.finalProject.model.Position;
 import com.example.finalProject.repository.ClientRepository;
 import com.example.finalProject.service.ClientService;
+
+import com.example.finalProject.utility.ApiConnectionService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -24,7 +26,7 @@ public class FinalProjectApplication {
     }
 
     @Bean
-    public CommandLineRunner commandLineRunnerBean(ClientRepository clientRepository, ClientService clientService) {
+    public CommandLineRunner commandLineRunnerBean(ClientRepository clientRepository, ClientService clientService, ApiConnectionService apiConnectionService) {
         return args -> {
             Client client = new Client();
             client.setFullName("Jonas Jonaitis");
@@ -98,6 +100,7 @@ public class FinalProjectApplication {
 
 
             clientRepository.save(client);
+
 
         };
 

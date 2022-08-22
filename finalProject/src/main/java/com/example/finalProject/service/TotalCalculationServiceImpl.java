@@ -1,9 +1,7 @@
 package com.example.finalProject.service;
 
-
 import com.example.finalProject.dto.PositionDto;
 import com.example.finalProject.utility.CalculationUtils;
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +11,6 @@ public class TotalCalculationServiceImpl implements TotalCalculationService {
 
     private final DataFromApiService dataFromApiService;
     private final CalculationUtils calculationUtils;
-
 
     @Override
     public Double calculateTotalCost(PositionDto positionDto) {
@@ -35,9 +32,9 @@ public class TotalCalculationServiceImpl implements TotalCalculationService {
 
     @Override
     public Double calculateGainLossPercentage(PositionDto positionDto) {
-        double gainLossPercentage = (calculateGainLoss(positionDto)/calculateTotalCost(positionDto));
+        double gainLossPercentage = (calculateGainLoss(positionDto) / calculateTotalCost(positionDto));
 //        return calculationUtils.round(gainLossPercentage, 2);
-        return  gainLossPercentage;
+        return gainLossPercentage;
     }
 
 

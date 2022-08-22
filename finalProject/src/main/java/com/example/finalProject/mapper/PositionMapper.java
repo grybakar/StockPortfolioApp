@@ -17,4 +17,6 @@ public class PositionMapper {
     public com.example.finalProject.model.Position mapToEntity(PositionDto positionDto){
         return mapperConfig.modelMapper().map(positionDto, com.example.finalProject.model.Position.class);
     }
+
+
 }

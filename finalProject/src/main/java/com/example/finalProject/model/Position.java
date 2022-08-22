@@ -40,7 +40,7 @@ public class Position {
     private Double gainLoss;
     private Double gainLossPercentage;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JsonBackReference
     @JoinColumn(name = "portfolioId")
     private Portfolio portfolio;

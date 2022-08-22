@@ -45,6 +45,20 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         return new ResponseEntity<>(errorMessage, notFound);
     }
 
+    @ExceptionHandler(NoValidSymbolProvidedException.class)
+    public ResponseEntity<Object> handleNoValidSymbolProvidedException(NoValidSymbolProvidedException ex,
+                                                                       WebRequest request) {
+        LOGGER.error("NoValidSymbolProvidedException: {}", ex.getMessage());
+
+        ErrorMessage errorMessage = ErrorMessage.builder()
+                .httpStatus(HttpStatus.BAD_REQUEST)
+                .message(ex.getMessage())
+                .path(request.getDescription(false))
+                .build();
+
+        return new ResponseEntity<>(errorMessage, HttpStatus.BAD_REQUEST);
+    }
+
     @Override
     protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException exception,
                                                                   HttpHeaders headers,

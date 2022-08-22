@@ -1,25 +1,23 @@
 package com.example.finalProject.service;
 
 import com.example.finalProject.exception.InvalidTickerException;
-import com.example.finalProject.utility.JsonReader;
+import com.example.finalProject.utility.ApiConnectionService;
+import lombok.AllArgsConstructor;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
+
 @Service
+@AllArgsConstructor
 public class DataFromApiService {
 
-    private static final String EOD_LATEST_PRICE_INFO_BY_TICKER =
-            "http://api.marketstack.com/v1/eod/latest?access_key=8fb16bcc2de03fc98cbd74986ca2b934&symbols=%s";
+    private final ApiConnectionService apiConnectionService;
 
-    /**
-     * getCurrentPrice methodas turetu grazinti dabartine stocko kaina.
-     *
-     * @param ticker - nurodome stocko sutrumpinima pagal kuri norime surasti dabartine jo kaina
-     * @return - grazina double tipo kintamaji.
-     * @throws JSONException
-     */
+    private static final String EOD_LATEST_PRICE_INFO_BY_TICKER =
+            "http://api.marketstack.com/v1/eod/latest?access_key=972348f3ed6ddf9af5371c2673ee178f&symbols=%s";
 
     public Double getCurrentPriceFromApi(String ticker) {
         double currentPrice = 0.0;
@@ -29,7 +27,7 @@ public class DataFromApiService {
                 throw new InvalidTickerException("At least one valid symbol must be provided");
             }
 
-            String jsonGetRequest = JsonReader.jsonGetRequest(String.format(EOD_LATEST_PRICE_INFO_BY_TICKER, ticker));
+            String jsonGetRequest = apiConnectionService.connect(String.format(EOD_LATEST_PRICE_INFO_BY_TICKER, ticker));
             JSONObject apiRequestJsonObject = new JSONObject(jsonGetRequest);
             JSONArray dataJsonArray = apiRequestJsonObject.getJSONArray("data");
             JSONObject dataJsonObject = dataJsonArray.getJSONObject(0);

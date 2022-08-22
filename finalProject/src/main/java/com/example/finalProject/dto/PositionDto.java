@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.persistence.Transient;
+import javax.transaction.Transactional;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -37,7 +39,6 @@ public class PositionDto {
     private Double totalEquity;
     private Double gainLoss;
     private Double gainLossPercentage;
-
     private PortfolioDto portfolioDto;
     private Long portfolioId;
 }
